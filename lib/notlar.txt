@@ -1,0 +1,64 @@
+MaterialApp prokjenin bel kemiği olduğunu daha önce söylemiştim.
+Bunun en güzel örneği Routelardır.
+MaterialPageRoute sınıfı MaterialApp olmadan çalışmaz.
+
+
+- Route niye ihtiyaç duyarım.
+Performans açısından MaterialPageRoute iyi değildir. Bu yüzden routelaı kullanmak daha performanslıdır.
+
+
+Route iki yolu vardır. Bir tanesi standart olan diğeri gelişmiş olan.
+
+Aralarında ki fark biri sadece sayfa geçişini sağlar.
+
+Diğeri ise hem sayfa geçişini hemde veri aktarımını  sağlar ama daha karışıktır.
+
+Routeları tanımlamak iiçin MaterialApp içerisnde Route paramateresi kullanılır ve bizden bir map ister içine Route ister.
+
+
+Kök dizin kullanmak için "/" kullanılır. 
+AMA  =>home: RedPage() Yorum satırına alınır. 
+
+routes: {
+        "/": (context) => RedPage(),
+        "/yellowPage": (context) => YellowPage(),
+        "/greenPage": (context) => GreenPage(),
+      },
+
+
+Eğer yanlış bir yol olursa Çalışan özel bir parametre vardır. MaterialApp içinde özel bir tanımlama yapılır.
+ErrorPage adında bir sayfa oluşturulur. Hatalı Parametrelerde sayfa buraya yönlendirilir.
+
+onUnknownRoute: (settings) =>
+          MaterialPageRoute(builder: (context) => ErrorPage()),
+
+On Generate Route:
+
+Yine MaterialApp içersinde bulunur.
+
+onGenerateRoute adında bir parametresi vardı.
+Bundan önceki konudan farkı Sadece Sayfa Açma değil aynı zamnda "Veri Aktarımı" yapmak için kullanılır. Daha Fazla kullanılır.
+
+
+MaterialApp in içini doldurmak istemiyorum O yuzden 
+
+
+----------------
+
+Öğleden sonra Route RedPage
+
+1- Sayfaya gidilecek olan butonu old. sayfada veri oluşturulur.
+
+2- Verinin gideceği sayfada const alıncarak veri için hazırlık yapılrı.
+
+3- Route yönteiminin oldu. sayfada Route Generator veri verinin gideceği sayfa kullanılır.
+
+ String name = settings.arguments as String;
+        return MaterialPageRoute(builder: (context) => GreenPage(ad: name));
+
+4- Anasayfada ki veriyi gönderen butona şu yazılır.
+
+onPressed: () {
+                Navigator.of(context).pushNamed("/greenPage", arguments: name);
+              },
+Sonuç olarak veri gönderimi tamamlanır.
