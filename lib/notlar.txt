@@ -8,7 +8,6 @@ Performans açısından MaterialPageRoute iyi değildir. Bu yüzden routelaı ku
 
 
 Route iki yolu vardır. Bir tanesi standart olan diğeri gelişmiş olan.
-
 Aralarında ki fark biri sadece sayfa geçişini sağlar.
 
 Diğeri ise hem sayfa geçişini hemde veri aktarımını  sağlar ama daha karışıktır.
